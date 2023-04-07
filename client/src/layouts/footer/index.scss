@@ -1,0 +1,74 @@
+footer {
+  background-color: #041c32;
+  color: white;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 40px 20px;
+
+    .logo {
+      width: 30%;
+
+      img {
+        width: 60%;
+        cursor: pointer;
+      }
+    }
+
+    nav {
+      width: 30%;
+      text-align: center;
+
+      .icons {
+        padding-bottom: 30px;
+
+        a {
+          width: fit-content;
+          margin-left: 20px;
+
+          i {
+            font-size: 25px;
+
+            &:hover {
+              color: #c3ba85 !important;
+            }
+
+            &.fa-instagram {
+              color: red;
+            }
+            &.fa-twitter {
+              color: #00acee;
+            }
+            &.fa-youtube {
+              color: #c4302b;
+            }
+            &.fa-linkedin {
+              color: #0e76a8;
+            }
+            &.fa-facebook {
+              color: #3b5998;
+            }
+            &.fa-telegram {
+              color: #0088cc;
+            }
+          }
+        }
+      }
+    }
+
+    .contact {
+      width: 30%;
+      text-align: right;
+    }
+  }
+}
