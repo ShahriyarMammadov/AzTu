@@ -12,6 +12,7 @@ import Rektor from "../pages/aboutPage/rektor";
 import ProRektorlar from "../pages/aboutPage/proRektorlar";
 import SabiqRektorlar from "../pages/aboutPage/sabiqRektorlar";
 import Strategiya from "../pages/aboutPage/strategiya";
+import BlogPage from "../pages/blogPage";
 
 const Router = () => {
   return (
@@ -28,6 +29,7 @@ const Router = () => {
         <Route path="/sabiqRektorlar" element={<SabiqRektorlar />}></Route>
         <Route path="/strategiya" element={<Strategiya />}></Route>
         <Route path="/detail/:id" element={<DetailPage />}></Route>
+        <Route path="/blog" element={<BlogPage />}></Route>
       </Routes>
       <Footer />
     </>

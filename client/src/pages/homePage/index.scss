@@ -13,6 +13,11 @@
     font-size: 45px;
     padding-top: 25%;
     font-family: "Alkatra", cursive;
+
+    @media only screen and (max-width: 426px) {
+      font-size: 30px;
+      padding-top: 60%;
+    }
   }
 }
 
@@ -30,8 +35,16 @@
     margin: 0 auto;
     padding: 0 20px;
 
+    @media only screen and (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
+
     .left {
       width: 50%;
+
+      @media only screen and (max-width: 768px) {
+        width: 95%;
+      }
 
       p {
         font-weight: 700;
@@ -41,6 +54,10 @@
 
     .right {
       width: 50%;
+
+      @media only screen and (max-width: 768px) {
+        width: 95%;
+      }
 
       img {
         width: 100%;

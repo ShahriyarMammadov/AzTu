@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import aztuLogo from "../../assets/images/aztu.png";
 import { Link, NavLink } from "react-router-dom";
-import { Button, Dropdown } from "antd";
+import { Dropdown, Drawer, Collapse, Divider } from "antd";
 
 const Header = () => {
+  const [toggleBtn, setToggleBtn] = useState(false);
+
   const handleToTop = () => {
     window.scrollTo({
       top: 0,
@@ -47,6 +49,21 @@ const Header = () => {
     },
   ];
 
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+    setToggleBtn(false);
+  };
+  const onChange = (e) => {
+    setPlacement(e.target.value);
+  };
+
+  const { Panel } = Collapse;
+
   return (
     <header id="header">
       <div className="header">
@@ -66,8 +83,100 @@ const Header = () => {
             <Link>Haqqımızda</Link>
           </Dropdown>
           <NavLink to={"/blog"}>Blog</NavLink>
-          <NavLink to={"/login"}>Daxil Ol</NavLink>
+          <div
+            id="responsiveMenu"
+            className={toggleBtn ? "change" : "menuBar"}
+            onClick={() => {
+              showDrawer(), setToggleBtn(!toggleBtn);
+            }}
+          >
+            <div className="bar1"></div>
+            <div className="bar2"></div>
+            <div className="bar3"></div>
+          </div>
         </nav>
+      </div>
+      <div className="menu">
+        <Drawer
+          title="AzTu"
+          placement="left"
+          closable={false}
+          onClose={onClose}
+          open={open}
+          key="left"
+        >
+          <Collapse size="small">
+            <Panel header="Haqqımızda" key="1">
+              <Link
+                to={"/fexriDoktorlar"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Fəxri Doktorlarımız
+              </Link>
+              <Link
+                to={"/fexriMezunlar"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Fəxri Məzunlarımız
+              </Link>
+              <Link
+                to={"/qehremanlarimiz"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Qəhrəmanlarımız
+              </Link>
+              <Link
+                to={"/strategiya"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Strategiya
+              </Link>
+              <Link
+                to={"/rektor"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Rektor
+              </Link>
+              <Link
+                to={"/sabiqRektorlar"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Sabiq Rektorlarımız
+              </Link>
+              <Link
+                to={"/suralar"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Şuralar
+              </Link>
+              <Link
+                to={"/prorektorlar"}
+                onClick={() => {
+                  onClose(), setToggleBtn(false);
+                }}
+              >
+                Prorektorlar
+              </Link>
+            </Panel>
+          </Collapse>
+          <Link to={"/blog"} className="menuBlog">
+            Blog
+          </Link>
+        </Drawer>
       </div>
     </header>
   );
