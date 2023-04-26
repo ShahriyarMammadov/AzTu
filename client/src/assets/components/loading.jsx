@@ -5,7 +5,7 @@ import "./index.scss";
 const Loading = () => {
   return (
     <div id="loading">
-      <img src={loadingImage} alt="loading" />
+      <div class="lds-hourglass"></div>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/homePage";
-import DetailPage from "../pages/detailsPage";
 import Header from "../layouts/header";
 import Footer from "../layouts/footer";
 import FexriMezunlar from "../pages/aboutPage/fexriMezunlar";
@@ -13,11 +12,15 @@ import ProRektorlar from "../pages/aboutPage/proRektorlar";
 import SabiqRektorlar from "../pages/aboutPage/sabiqRektorlar";
 import Strategiya from "../pages/aboutPage/strategiya";
 import BlogPage from "../pages/blogPage";
+import DashBoard from "../pages/admin/dashboard";
+import Bar from "../assets/components/bar";
+import LoginPage from "../pages/loginPage";
 
 const Router = () => {
   return (
     <>
       <Header />
+      <Bar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/fexriDoktorlar" element={<FexriDoktorlar />}></Route>
@@ -28,8 +31,9 @@ const Router = () => {
         <Route path="/prorektorlar" element={<ProRektorlar />}></Route>
         <Route path="/sabiqRektorlar" element={<SabiqRektorlar />}></Route>
         <Route path="/strategiya" element={<Strategiya />}></Route>
-        <Route path="/detail/:id" element={<DetailPage />}></Route>
         <Route path="/blog" element={<BlogPage />}></Route>
+        <Route path="/adminPanel" element={<DashBoard />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
       </Routes>
       <Footer />
     </>

@@ -42,8 +42,7 @@ module.exports.login = async (req, res) => {
     if (!user) {
       throw Error("User not found");
     }
-    const passwordMatch = await bcrypt.compare(password, user.password);
-    if (!passwordMatch) {
+    if (password !== user.password) {
       throw Error("Incorrect password");
     }
     const token = createToken(user._id);
@@ -52,7 +51,7 @@ module.exports.login = async (req, res) => {
       withCredentials: true,
       maxAge: maxAge * 1000,
     });
-    res.status(200).json({ data: user, created: true });
+    res.status(200).json({ created: true });
   } catch (err) {
     console.log(err);
     const errors = handleErrors(err);

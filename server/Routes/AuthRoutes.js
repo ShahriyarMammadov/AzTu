@@ -11,6 +11,8 @@ const {
   getQehremanlarimiz,
   getProrektorlar,
   getFexriMezunlar,
+  getBlogData,
+  addedBlogData,
 } = require("../controllers/dataController");
 const { checkUser } = require("../middlewares/authMiddleware");
 
@@ -27,6 +29,7 @@ function userRouter(app) {
   app.post("/added/qehremanlarimiz", addedQehremanlarimiz);
   app.post("/added/sabiqRektorlarimiz", addedSabiqRektorlarimiz);
   app.post("/added/prorektor", addedProrektor);
+  app.post("/added/blogData", addedBlogData);
 
   // GET
   app.get("/fexriDoktorlar", getFexriDoktorlarimiz);
@@ -34,6 +37,7 @@ function userRouter(app) {
   app.get("/qehremanlarimiz", getQehremanlarimiz);
   app.get("/prorektorlar", getProrektorlar);
   app.get("/fexriMezunlar", getFexriMezunlar);
+  app.get("/blogData", getBlogData);
 }
 
 module.exports = userRouter;

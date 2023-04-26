@@ -15,5 +15,44 @@
       width: 100%;
       height: 50vh;
     }
+
+    .allCard {
+      .blogCards {
+        display: flex;
+        gap: 20px;
+        margin-top: 35px;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
+        .texts {
+          width: 100%;
+        }
+
+        .aboutText,
+        .text {
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  .hrCard {
+    width: 100%;
+    height: 10px;
+    background-image: linear-gradient(
+      90deg,
+      #33ffbb,
+      #31acff,
+      #2ad39f,
+      #0170f0
+    );
+    margin-top: 30px;
   }
 }

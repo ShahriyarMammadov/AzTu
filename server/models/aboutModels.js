@@ -55,6 +55,14 @@ const aboutSchema = new mongoose.Schema(
         },
       ],
     },
+    blog: [
+      {
+        blogName: { type: String },
+        blogImage: { type: String },
+        blogText: { type: String },
+        expiredDate: { type: String },
+      },
+    ],
   },
   { timestamps: true }
 );

@@ -10,7 +10,7 @@ module.exports.checkUser = (req, res, next) => {
         next();
         console.log("error:", err);
       } else {
-        const user = await User.findById(decodedToken.id);
+        const user = await aboutSchema.findById(decodedToken.id);
 
         if (user) {
           res.json({ status: true, data: user });

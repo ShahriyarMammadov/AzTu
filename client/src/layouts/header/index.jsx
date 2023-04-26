@@ -94,6 +94,7 @@ const Header = () => {
             <div className="bar2"></div>
             <div className="bar3"></div>
           </div>
+          <Link to={"/login"}>Login</Link>
         </nav>
       </div>
       <div className="menu">
@@ -175,6 +176,9 @@ const Header = () => {
           </Collapse>
           <Link to={"/blog"} className="menuBlog">
             Blog
+          </Link>
+          <Link to={"/adminPanel"} className="menuBlog">
+            Login
           </Link>
         </Drawer>
       </div>

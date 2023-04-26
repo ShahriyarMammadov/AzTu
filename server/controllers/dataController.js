@@ -36,6 +36,7 @@ module.exports.addedFexriDoktor = async (req, res) => {
     });
   }
 };
+
 //-------------------------------------------------------------------
 module.exports.addedfexriMezun = async (req, res) => {
   const { text, name } = req.body;
@@ -57,6 +58,7 @@ module.exports.addedfexriMezun = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
 //-------------------------------------------------------------------
 module.exports.addedQehremanlarimiz = async (req, res) => {
   const {
@@ -96,6 +98,8 @@ module.exports.addedQehremanlarimiz = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
+//-------------------------------------------------------------------
 module.exports.addedSabiqRektorlarimiz = async (req, res) => {
   const { image, name, text } = req.body;
 
@@ -117,6 +121,7 @@ module.exports.addedSabiqRektorlarimiz = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
 //-------------------------------------------------------------------
 module.exports.addedProrektor = async (req, res) => {
   const { image, name, text } = req.body;
@@ -154,6 +159,7 @@ module.exports.getFexriDoktorlarimiz = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
 //-------------------------------------------------------------------
 module.exports.getSabiqRektorlarimiz = async (req, res) => {
   try {
@@ -166,6 +172,7 @@ module.exports.getSabiqRektorlarimiz = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
 //-------------------------------------------------------------------
 module.exports.getQehremanlarimiz = async (req, res) => {
   try {
@@ -178,6 +185,7 @@ module.exports.getQehremanlarimiz = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
 //-------------------------------------------------------------------
 module.exports.getFexriMezunlar = async (req, res) => {
   try {
@@ -190,11 +198,49 @@ module.exports.getFexriMezunlar = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------
+
 //-------------------------------------------------------------------
 module.exports.getProrektorlar = async (req, res) => {
   try {
     const about = await aboutSchema.findOne({ email: "adminadmin@gmail.com" });
     res.status(200).json(about.data.prorektorlar);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+//-------------------------------------------------------------------
+
+//-------------------------------------------------------------------
+module.exports.addedBlogData = async (req, res) => {
+  const { blogName, blogImage, blogText, expiredDate } = req.body;
+
+  try {
+    const about = await aboutSchema.findOne({ email: "adminadmin@gmail.com" });
+
+    about.blog.push({
+      blogImage: blogImage,
+      blogName: blogName,
+      blogText: blogText,
+      expiredDate: expiredDate,
+    });
+
+    await about.save();
+    res.status(200);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+//-------------------------------------------------------------------
+
+//-----------------------------Get Blog Data-------------------------
+module.exports.getBlogData = async (req, res) => {
+  try {
+    const about = await aboutSchema.findOne({ email: "adminadmin@gmail.com" });
+    res.status(200).json(about.blog);
   } catch (error) {
     res.status(500).json({
       message: error.message,
